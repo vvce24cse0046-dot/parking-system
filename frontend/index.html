@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Parking System</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div>
+        <h1>🚗 Smart Parking</h1>
+        <p>Find Your Space. Book Your Space.</p>
+    </div>
+</header>
+
+<main>
+
+    <!-- AUTH SECTION -->
+
+    <section id="authSection" class="auth-container">
+
+        <div class="auth-card">
+
+            <h2>Welcome to Smart Parking</h2>
+
+            <p class="subtitle">Register or login to continue</p>
+
+            <h3>Create Account</h3>
+
+            <form id="registerForm">
+
+                <label>Account Type</label>
+
+                <select id="role">
+                    <option value="user">Parking User</option>
+                    <option value="owner">Parking Owner</option>
+                </select>
+
+                <input id="name" placeholder="Full Name" required>
+
+                <input id="email" type="email" placeholder="Email Address" required>
+
+                <input id="password" type="password"
+                    placeholder="Password (minimum 8 characters)"
+                    minlength="8" required>
+
+                <input id="phone" type="tel" placeholder="Phone Number" required>
+
+                <input id="vehicleNumber"
+                    placeholder="Vehicle Number (KA09AB1234)"
+                    required>
+
+                <input id="ownerCode"
+                    placeholder="Owner Registration Code"
+                    hidden>
+
+                <button type="submit" class="primary-btn">
+                    Register
+                </button>
+
+            </form>
+
+            <div class="separator"></div>
+
+            <h3>Login</h3>
+
+            <form id="loginForm">
+
+                <input id="loginEmail"
+                    type="email"
+                    placeholder="Email Address"
+                    required>
+
+                <input id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    required>
+
+                <button type="submit" class="primary-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p id="message" role="status"></p>
+
+        </div>
+
+    </section>
+
+    <!-- USER DASHBOARD -->
+
+    <section id="userDashboard" class="dashboard" hidden>
+
+        <div class="welcome">
+            <h2>User Dashboard</h2>
+            <p id="userWelcome"></p>
+        </div>
+
+        <div class="card">
+
+            <h3>Available Parking Slots</h3>
+
+            <p>Choose an available parking slot.</p>
+
+            <div class="legend">
+                <span>🟢 Available</span>
+                <span>🔴 Booked</span>
+            </div>
+
+            <div id="slots" class="slots-grid"></div>
+
+            <button id="refreshSlots" class="secondary-btn">
+                Refresh Slots
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h3>My Booking History</h3>
+
+            <div id="myBookings"></div>
+
+        </div>
+
+        <button id="userLogout" class="logout-btn">
+            Logout
+        </button>
+
+    </section>
+
+    <!-- OWNER DASHBOARD -->
+
+    <section id="ownerDashboard" class="dashboard" hidden>
+
+        <div class="welcome">
+            <h2>Owner Dashboard</h2>
+            <p>Manage your parking system</p>
+        </div>
+
+        <div id="statistics" class="statistics"></div>
+
+        <div class="card">
+
+            <h3>Registered Users</h3>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Vehicle Number</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="usersTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>All Parking Bookings</h3>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Vehicle</th>
+                            <th>Slot</th>
+                            <th>Status</th>
+                            <th>Expiry</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookingsTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <button id="refreshOwner" class="secondary-btn">
+            Refresh Dashboard
+        </button>
+
+        <button id="ownerLogout" class="logout-btn">
+            Logout
+        </button>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Smart Parking Management System © 2026</p>
+</footer>
+
+<script src="/js/app.js"></script>
+
+</body>
+</html>
